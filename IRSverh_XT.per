@@ -1,0 +1,64 @@
+{$ --------------------------------------------------------------------
+#$                                 NOTICE
+#$
+#$         THIS SOFTWARE IS THE PROPERTY OF AND CONTAINS
+#$         CONFIDENTIAL INFORMATION OF INFOR AND/OR ITS AFFILIATES
+#$         OR SUBSIDIARIES AND SHALL NOT BE DISCLOSED WITHOUT PRIOR
+#$         WRITTEN PERMISSION. LICENSED CUSTOMERS MAY COPY AND
+#$         ADAPT THIS SOFTWARE FOR THEIR OWN USE IN ACCORDANCE WITH
+#$         THE TERMS OF THEIR SOFTWARE LICENSE AGREEMENT.
+#$         ALL OTHER RIGHTS RESERVED.
+#$
+#$         (c) COPYRIGHT 2011 INFOR.  ALL RIGHTS RESERVED.
+#$         THE WORD AND DESIGN MARKS SET FORTH HEREIN ARE
+#$         TRADEMARKS AND/OR REGISTERED TRADEMARKS OF INFOR
+#$         AND/OR ITS AFFILIATES AND SUBSIDIARIES. ALL RIGHTS
+#$         RESERVED.  ALL OTHER TRADEMARKS LISTED HEREIN ARE
+#$         THE PROPERTY OF THEIR RESPECTIVE OWNERS.
+#$
+#$ --------------------------------------------------------------------
+}
+{$Log:   /exe/pvcs/2000/wms56/inv/ictl/IRSverh_XT.pev  $
+ # ^M
+ #    Rev 1.0   Mon Jun 10 16:39:06 CDT 1996   skumarir
+ # Initial revision.
+###############################################################################
+ # Initial revision.
+###############################################################################
+ SCCS
+ "@(#)$Header:   /exe/pvcs/2000/wms56/inv/ictl/IRSverh_XT.pev   5.3   08 Feb 2011 23:52:12   skumarir  $"
+~SCCS
+##############################################################################}
+SCHEMA exceed # WITHOUT NULL INPUT
+
+SCREEN
+{
+
++-_PURCHASE+  +ORDERS_-+
+ +PO_/_Rcpt_/_Wse_/_Unvr+  +Cl+
+[po                ]
+[rcpt      ]   [wh]   [num][c]
+
+}
+
+TABLES
+irctd
+
+ATTRIBUTES
+
+wh   = FORMONLY.whse_id  TYPE SMALLINT, NOENTRY;
+po   = irctd.po_id,        NOENTRY;
+rcpt = irctd.rcpt_id, 	 NOENTRY;
+num  = FORMONLY.num      TYPE INTEGER, NOENTRY;
+c    = FORMONLY.close    TYPE CHAR, UPSHIFT, AUTONEXT;
+
+INSTRUCTIONS
+
+SCREEN RECORD s_rcpt_list (irctd.po_id,
+                              irctd.rcpt_id,
+							  FORMONLY.whse_id,							
+                              FORMONLY.num,
+                              FORMONLY.close)
+
+DELIMITERS "  "
+

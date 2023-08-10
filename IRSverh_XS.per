@@ -1,0 +1,56 @@
+{$ --------------------------------------------------------------------
+#$                                 NOTICE
+#$
+#$         THIS SOFTWARE IS THE PROPERTY OF AND CONTAINS
+#$         CONFIDENTIAL INFORMATION OF INFOR AND/OR ITS AFFILIATES
+#$         OR SUBSIDIARIES AND SHALL NOT BE DISCLOSED WITHOUT PRIOR
+#$         WRITTEN PERMISSION. LICENSED CUSTOMERS MAY COPY AND
+#$         ADAPT THIS SOFTWARE FOR THEIR OWN USE IN ACCORDANCE WITH
+#$         THE TERMS OF THEIR SOFTWARE LICENSE AGREEMENT.
+#$         ALL OTHER RIGHTS RESERVED.
+#$
+#$         (c) COPYRIGHT 2011 INFOR.  ALL RIGHTS RESERVED.
+#$         THE WORD AND DESIGN MARKS SET FORTH HEREIN ARE
+#$         TRADEMARKS AND/OR REGISTERED TRADEMARKS OF INFOR
+#$         AND/OR ITS AFFILIATES AND SUBSIDIARIES. ALL RIGHTS
+#$         RESERVED.  ALL OTHER TRADEMARKS LISTED HEREIN ARE
+#$         THE PROPERTY OF THEIR RESPECTIVE OWNERS.
+#$
+#$ --------------------------------------------------------------------
+}
+{$Log:   /exe/pvcs/2000/wms56/inv/ictl/IRSverh_XS.pev  $
+ # ^M
+ #    Rev 1.0   Fri Aug 23 16:34:32 CDT 1996   stevenw2
+ # Initial revision.
+"@(#)$Header:   /exe/pvcs/2000/wms56/inv/ictl/IRSverh_XS.pev   5.3   08 Feb 2011 23:52:14   skumarir  $"
+}
+SCHEMA exceed # WITHOUT NULL INPUT
+
+SCREEN
+{
+
+ +-_RECEIPT_LIST_-+
+ +RCPT+
+         
+[rcpt      ]   
+        
+[rcpt      ]
+            
+[rcpt      ]     
+      
++Choose_One+ 
+}
+
+TABLES
+irctd
+
+ATTRIBUTES
+
+rcpt  = irctd.rcpt_id,      NOENTRY;
+
+INSTRUCTIONS
+
+SCREEN RECORD s_rcpt_array[3] (irctd.rcpt_id)
+                             
+
+DELIMITERS "  "
